@@ -1,0 +1,24 @@
+<quest>
+	<text id="answer">Hello
+</text>
+
+<text id="quest_text">Hey, I seem to be having trouble with my text output. 
+
+Could you try writing: 
+
+print "Hello" 
+
+into the box to the left and hitting the execute button?
+</text>
+
+<text id="hint_text">Write the following in to the left: 
+
+print "Hello" 
+
+And press the execute button!
+</text>
+
+
+<text id="success">Congratulations!
+</text>
+</quest>
