@@ -3,13 +3,17 @@ extends Node
 
 var current_scene = null
 var current_course = "python"
-var current_level = "level_one"
+var current_level = "1"
 
 
-
+	
+func _ready():
+	var root = get_scene().get_root()
+	current_scene = root.get_child( root.get_child_count() -1 )
 
 func goto_scene(scene):
 	#load new scene
+	print(scene)
 	var s = ResourceLoader.load(scene)
 	current_scene.queue_free()
 	#instance the new scene
@@ -35,6 +39,3 @@ func move_player(pos):
 func toggle_player():
 	current_scene.get_node("player").pause()
 	
-func _ready():
-	var root = get_scene().get_root()
-	current_scene = root.get_child( root.get_child_count() -1 )

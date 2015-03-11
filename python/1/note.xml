@@ -1,5 +1,5 @@
 <player>
-	<text id="0">
+	<text quest_id="0">
 		An integer is a positive or negative whole number or zero. 
 		The numbers 4, -876, and 5,280 are all integers.
 	</text>

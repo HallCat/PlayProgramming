@@ -2,6 +2,7 @@
 extends TextureButton
 
 export var level = ""
+export(String, FILE, ".scn") var level_path
 export var level_description = ""
 
 func _ready():
@@ -11,8 +12,7 @@ func _ready():
 	pass
 
 func _on_LevelButton_pressed():
-	var level = get_name()
-	var course = get_node("/root/global").get_current_course()
 	get_node("/root/global").set_current_level(level)
-	get_node("/root/global").goto_scene("res://" + course + "/" + level + "/main.scn")
+	print(level_path)
+	get_node("/root/global").goto_scene(level_path)
 	pass # replace with function body

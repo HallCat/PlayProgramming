@@ -6,7 +6,7 @@ extends CanvasLayer
 # var b="execute_labelvar"
 
 var window
-var text 
+var code_text 
 var http_helper
 var file_helper
 var execute_label
@@ -16,7 +16,7 @@ var reward_popup
 func _ready():
 	
 	window = get_node("WindowDialog")
-	text = get_node("WindowDialog/codeEdit")
+	code_text = get_node("WindowDialog/codeEdit")
 	http_helper = get_node("HttpHelper")
 	file_helper = get_node("XML_helper")
 	execute_label = get_node("WindowDialog/executeLabel")
@@ -24,6 +24,13 @@ func _ready():
 	reward_popup = get_node("RewardPopup")
 	
 	char_label.set_text(file_helper.get_quest_text())
+	code_text.set_syntax_coloring(true)
+	code_text.set_symbol_color(Color(1,.5833,0))
+	
+	code_text.add_color_region("\"", "\"", Color(0.7,0,1))
+	code_text.add_keyword_color("print", Color(1,.5833,0))
+	code_text.set_custom_bg_color(Color(0,0,0))
+	
 
 
 	set_fixed_process(true)
@@ -56,12 +63,12 @@ func _on_WindowDialog_about_to_show():
 func save_file(file):
 	var f = File.new()
 	f.open(file, File.WRITE)
-	f.store_string(text.get_text())
+	f.store_string(code_text.get_text())
 
 
 func _on_executeButton_pressed():
-	var res = http_helper.http_post_request(text.get_text())
-	execute_label.set_text("OUTPUT: " + res)
+	var res = http_helper.http_post_request(code_text.get_text())
+	execute_label.set_text("OUTPUT: \n" + res)
 	
 	var check = file_helper.check_answer(res)
 
