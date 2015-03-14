@@ -1,41 +1,47 @@
 extends Node
 
+var _current_scene = null
+var _current_course = "python"
+var _current_level = "1"
+var _root
 
-var current_scene = null
-var current_course = "python"
-var current_level = "1"
-
-
-	
 func _ready():
-	var root = get_scene().get_root()
-	current_scene = root.get_child( root.get_child_count() -1 )
+	_root = get_scene().get_root()
+	_current_scene = _root.get_child( _root.get_child_count() -1 )
 
 func goto_scene(scene):
-	#load new scene
-	print(scene)
+	#load the new scene.
 	var s = ResourceLoader.load(scene)
-	current_scene.queue_free()
-	#instance the new scene
-	current_scene = s.instance()
-	#add it to the active scene, as child of root
-	get_scene().get_root().add_child(current_scene)
+	# free up the _current scene.
+	_current_scene.queue_free()
+	# set _current_scene to an instance of the new scene.
+	_current_scene = s.instance()
+	# Add the _current scene as a child to _root. ie. make it the active scene.
+	_root.add_child(_current_scene)
 	
+# return the _current scene
 func get_current_scene():
-	return current_scene
-	
+	return _current_scene
+
+# return the _current level string, to be used for file structure.	
 func get_current_level():
-	return current_level
+	return _current_level
 	
+# Set the _current level string to cur_level
 func set_current_level(cur_level):
-	current_level = cur_level
+	_current_level = cur_level
 	
+# Return the _current course string, to be used for file structure.
 func get_current_course():
-	return current_course
+	return _current_course
 	
+# Move the player to the 2D position pos.
 func move_player(pos):
-	current_scene.get_node("player").set_pos(pos)
+	# NOTE: player scene must be called player in _current scene.
+	_current_scene.get_node("player").set_pos(pos)
 	
+# Toggle the player. Pauses the player to prevent it from moving.
+# This prevents prevents the player input from interupting the code/text input 
 func toggle_player():
-	current_scene.get_node("player").pause()
+	_current_scene.get_node("player").pause()
 	

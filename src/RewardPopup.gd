@@ -17,6 +17,7 @@ func set_text(text):
 	get_node("window/congrats_label").set_text(text)
 
 func _on_level_select_button_pressed():
+	get_node("window").hide()
 	get_node("/root/global").goto_scene("res://engine/level_select.scn")
 
 

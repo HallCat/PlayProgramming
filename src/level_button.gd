@@ -13,6 +13,5 @@ func _ready():
 
 func _on_LevelButton_pressed():
 	get_node("/root/global").set_current_level(level)
-	print(level_path)
 	get_node("/root/global").goto_scene(level_path)
 	pass # replace with function body

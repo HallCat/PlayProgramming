@@ -1,4 +1,4 @@
-
+	
 extends Node2D
 
 
@@ -11,7 +11,7 @@ func http_connect():
 	var attempts = 0
 	
 	while(( http.get_status()==HTTPClient.STATUS_CONNECTING or http.get_status()==HTTPClient.STATUS_RESOLVING) and 
-	attempts < 10):
+	attempts < 25):
 		#Wait until resolved and connected
 		http.poll()
 		print("Connecting..")	
@@ -19,7 +19,7 @@ func http_connect():
 		attempts+= 1
 		print(attempts)
 		
-	if(attempts == 10 or err != OK):
+	if(attempts == 25 or err != OK):
 		return false
 	else:
 		return true
