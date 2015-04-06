@@ -1,0 +1,22 @@
+<quest>
+	<text id="answer">0
+1
+2
+3
+4
+5
+</text>
+
+<text id="quest_text">Loop between the numbers 0 - 5 using a for loop, and the range method.
+</text>
+
+<text id="hint_text"> range(4) will loop between 0 - 4!
+</text>
+
+
+<text id="success">Congratulations! 
+You helped Richard with his problem!
+
+Printing will be used throughout this game for testing answers. 
+</text>
+</quest>

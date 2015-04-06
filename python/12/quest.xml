@@ -1,0 +1,20 @@
+<quest>
+	<text id="answer">10
+20
+30
+40
+50
+</text>
+
+<text id="quest_text">Look at the list, and modify it to multiply each element by 10.
+	Then print out the list!
+</text>
+
+<text id="hint_text">
+Lists start counting from 0!
+</text>
+
+
+<text id="success">Congratulations! 
+</text>
+</quest>

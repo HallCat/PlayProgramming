@@ -1,27 +1,18 @@
 <quest>
-	<text id="answer">Hello
+	<text id="answer">x is true!</text>
+
+<text id="quest_text">Right now, x is false. Because of this the if statement will evaluate to false, and the code within this if will be skipped. We want the program to print "x was true!" 
+
+Modify the value of x to get this output!
 </text>
 
-<text id="quest_text">In Python, outputting text to the screen involves having to type the keyword print followed by a space and the desired output surrounded by inverted commas ("). For example, the following:
-
-print "My name is Richard" 
-
-will have the text "My name is Richard" show up on screen.
-Try outputting the word Hello to the screen.
-Press the execute button when you're ready to check your answer!
-</text>
-
-<text id="hint_text">Write the following in to the left: 
-
-print "Hello" 
-
-And press the execute button!
+<text id="hint_text">Remember: boolean values can be true, or false!
 </text>
 
 
 <text id="success">Congratulations! 
 You helped Richard with his problem!
-
-Printing will be used throughout this game for testing answers. 
+if statements are extremely useful in programming! 
+Next we will look at the else if, and else statements!
 </text>
 </quest>

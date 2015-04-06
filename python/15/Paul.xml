@@ -1,0 +1,5 @@
+<text quest_id="0">Just like lists, new elements can be added to dictionaries! Just like this, which adds 2, with the key to the dictionary:
+
+my_dict = {"one" : 1}
+my_dict["two"] = 2
+</text>

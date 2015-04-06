@@ -1,0 +1,23 @@
+<quest>
+	<text id="answer">1
+2
+3
+4
+5
+</text>
+
+<text id="quest_text">Peter is trying to loop 5 times, and print out the numbers one to five.
+
+His loop isn't acting as expected, check it out!
+</text>
+
+<text id="hint_text">Check his loop condition!
+	And where is he printing?
+</text>
+
+
+<text id="success">Congratulations! 
+You helped Peter with his problem!
+
+</text>
+</quest>

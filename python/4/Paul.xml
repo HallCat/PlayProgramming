@@ -1,0 +1,4 @@
+<text quest_id="0">Booleans can be used within if statements to check if a condition is true. For example:
+	if(condition == true):
+		do something
+</text>

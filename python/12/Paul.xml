@@ -1,0 +1,2 @@
+<text quest_id="0">Lists can also be modified! To change the value of an element in a list, you must retrieve it using list[index] and then have it equal another variable.
+</text>

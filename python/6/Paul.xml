@@ -1,0 +1,4 @@
+<text quest_id="0"> Variables can be assigned and reassigned. In Python, variables can be reassigned to different types. For example:
+	x = 10
+	x = "ten"
+</text>

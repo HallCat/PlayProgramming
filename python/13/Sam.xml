@@ -1,0 +1,4 @@
+<text quest_id="0">Just like appending, elements can be removed, this will remove the number 10 from the list:
+
+int_list.remove(10)
+</text>

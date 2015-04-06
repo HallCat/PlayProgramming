@@ -1,0 +1,6 @@
+<text quest_id="0">After writing an if statement, else if statements can be used to check another condition. For example:
+	if x == 5:
+		do something
+	elif x == 10:
+		do something else
+</text>

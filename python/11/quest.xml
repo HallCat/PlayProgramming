@@ -1,0 +1,20 @@
+<quest>
+	<text id="answer">1
+22
+33
+44
+55
+</text>
+
+<text id="quest_text">In Python, lists are used to store multiple elements in a single variable. Peter has made a list of ints, but is getting some errors. Check them out, and help fix them!
+</text>
+
+<text id="hint_text">
+Lists start counting from 0!
+</text>
+
+
+<text id="success">Congratulations! 
+You helped Peter with his problem!
+</text>
+</quest>

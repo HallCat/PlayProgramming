@@ -1,0 +1,4 @@
+<text quest_id="0">Elements can also be deleted from a dictionary, this will delete the element associated with the key "two":
+
+del my_dict["two"]
+</text>

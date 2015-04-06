@@ -1,0 +1,19 @@
+<quest>
+	<text id="answer">100
+101
+102
+103
+104
+105
+</text>
+
+<text id="quest_text">Loop between 100 and 105 (inclusive) and print out each number.
+</text>
+
+<text id="hint_text">Remember range 1-5 goes to 1, 2, 3, 4
+</text>
+
+
+<text id="success">Congrats!
+</text>
+</quest>

@@ -1,0 +1,17 @@
+<quest>
+	<text id="answer">820
+</text>
+
+<text id="quest_text">Peter is trying to get his sum to equal 820. Where is he going wrong? Help him!
+</text>
+
+<text id="hint_text">Add brackets to help your maths ordering!
+</text>
+
+
+<text id="success">Congratulations! 
+You helped Richard with his problem!
+
+Printing will be used throughout this game for testing answers. 
+</text>
+</quest>

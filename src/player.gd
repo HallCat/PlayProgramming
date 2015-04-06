@@ -12,18 +12,20 @@ var velocity = Vector2(0, FALL_SPEED)
 var can_jump=false
 var pause = false
 var sprite 
+var animation_player
+var current_animation = "Idle"
 
 
 func _ready():
 	#Initalization here
-	sprite = get_node("sprite")
+	sprite = get_node("Sprite")
+	animation_player = get_node("AnimationPlayer")
 	set_fixed_process(true)
 	pass
 
 
 func _fixed_process(delta):
 
-	
 	calculate_velocity()
 	
 	var motion = velocity * delta
@@ -55,9 +57,12 @@ func calculate_velocity():
 		
 	if (walk_left):
 		move_left()
+		play_animation("RunningLeft")
 	elif (walk_right):
-		move_right()
+		move_right()		
+		play_animation("Running")
 	else:
+		play_animation("Idle")
 		velocity.x = 0
 		
 	
@@ -72,14 +77,17 @@ func jump():
 	velocity.y = JUMP_SPEED
 
 func move_left():
-	sprite.set_flip_h(true)
 	
 	velocity.x = -WALK_SPEED
 
 func move_right():
-	sprite.set_flip_h(false)
 		
 	velocity.x = WALK_SPEED
+
+func play_animation(new_animation):
+	if new_animation != current_animation:
+		current_animation = new_animation
+		animation_player.play(new_animation)
 
 func pause():
 	pause = !pause

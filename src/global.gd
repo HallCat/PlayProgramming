@@ -1,12 +1,13 @@
 extends Node
 
+# Private Global Variables
 var _current_scene = null
 var _current_course = "python"
-var _current_level = "1"
+var _current_level = 1
 var _root
 
 func _ready():
-	_root = get_scene().get_root()
+	_root = get_tree().get_root()
 	_current_scene = _root.get_child( _root.get_child_count() -1 )
 
 func goto_scene(scene):
@@ -38,10 +39,10 @@ func get_current_course():
 # Move the player to the 2D position pos.
 func move_player(pos):
 	# NOTE: player scene must be called player in _current scene.
-	_current_scene.get_node("player").set_pos(pos)
+	_current_scene.get_node("Player").set_pos(pos)
 	
 # Toggle the player. Pauses the player to prevent it from moving.
 # This prevents prevents the player input from interupting the code/text input 
 func toggle_player():
-	_current_scene.get_node("player").pause()
+	_current_scene.get_node("Player").pause()
 	

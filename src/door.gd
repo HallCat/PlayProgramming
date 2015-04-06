@@ -1,37 +1,31 @@
 
 extends Area2D 
-# member variables here, example:
-# var a=2
-# var b="textvar"
+
 export(String, FILE, ".scn") var level_path
 
-var door_width = 16
+var _DOOR_WIDTH = 16
 
-var up_pressed = false
-var collide = false
+var _up_pressed = false
+var _colliding = false
 
-var to_pos = Vector2(0, 0)
-
+var _new_position = Vector2(0, 0)
 
 func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	up_pressed = Input.is_action_pressed("move_up")
+	_up_pressed = Input.is_action_pressed("move_up")
 	
-	if up_pressed and collide:
+	if _up_pressed and _colliding:
 		get_node("/root/global").goto_scene(level_path)
 		
 		# circular-ish dependency on purpose to connect doors to each other
-		to_pos = get_node("/root/global").get_current_scene().get_node("Door").get_pos()
-		to_pos.x += door_width
-		get_node("/root/global").move_player(to_pos)
-
-
-
+		_new_position = get_node("/root/global").get_current_scene().get_node("Door").get_pos()
+		_new_position.x += _DOOR_WIDTH
+		get_node("/root/global").move_player(_new_position)
 
 func _on_Door_body_enter( body ):
-	collide = true
+	_colliding = true
 
 func _on_Door_body_exit( body ):
-	collide = false
+	_colliding = false

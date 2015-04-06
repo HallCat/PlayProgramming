@@ -1,0 +1,17 @@
+<quest>
+	<text id="answer">X is 10
+</text>
+
+<text id="quest_text">In Python, tabbing and whitespace is very important. 
+	Press execute on this code, and try to fix the errors, then press execute again.
+</text>
+
+<text id="hint_text">If the errors are confusing, feel free to use other resources to help. Googling errors is recommended!
+</text>
+
+
+<text id="success">Congratulations! 
+Remember, Tabbing and whitespace are core concepts of Python. 
+Mastering this will help you in the long run!
+</text>
+</quest>

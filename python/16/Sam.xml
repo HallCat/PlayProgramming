@@ -1,0 +1,6 @@
+<text quest_id="0">Here is an example of a while loop. This loop will run as long as x is less than y.
+
+while (x < y):
+	print("X is " + x)
+	x = x + 1
+</text>

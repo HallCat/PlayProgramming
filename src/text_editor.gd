@@ -1,93 +1,82 @@
 
 extends CanvasLayer
 
-# member variables here, example:
-# var a=2
-# var b="execute_labelvar"
-
-var window
-var code_text 
-var http_helper
-var file_helper
-var execute_label
-var char_label
-var reward_popup
+# Global Variables
+var _window
+var _code_text 
+var _http_helper
+var _file_helper
+var _output_label
+var _description_label
+var _reward_popup
+var _check_label
 
 func _ready():
-	
-	window = get_node("WindowDialog")
-	code_text = get_node("WindowDialog/codeEdit")
-	http_helper = get_node("HttpHelper")
-	file_helper = get_node("XML_helper")
-	execute_label = get_node("WindowDialog/executeLabel")
-	char_label = get_node("WindowDialog/char_label")
-	reward_popup = get_node("RewardPopup")
-	
-	char_label.set_text(file_helper.get_quest_text())
-	code_text.set_syntax_coloring(true)
-	code_text.set_symbol_color(Color(1,.5833,0))
-	
-	code_text.add_color_region("\"", "\"", Color(0.7,0,1))
-	code_text.add_keyword_color("print", Color(1,.5833,0))
-	code_text.set_custom_bg_color(Color(0,0,0))
-	
 
-
-	set_fixed_process(true)
-	set_process_input(true)
+	_window = get_node("WindowDialog")
+	_code_text = get_node("WindowDialog/codeEdit")
+	_http_helper = get_node("HttpHelper")
+	_file_helper = get_node("FileHelper")
+	_output_label = get_node("WindowDialog/outputLabel")
+	_description_label = get_node("WindowDialog/descriptionLabel")
+	_reward_popup = get_node("RewardPopup")
+	_check_label = get_node("WindowDialog/checkLabel")
 	
 	
-	pass
+	_output_label.set_text("OUTPUT:")
+	_description_label.set_text(_file_helper.get_quest_text())
+	
+	_code_text.set_syntax_coloring(true)
+	_code_text.set_symbol_color(Color(1,.5833,0))
+	
+	
+	_code_text.add_color_region("#", "", Color(0.7,0,1), true)
+	_code_text.add_color_region("\"", "\"", Color(0.7,0,1))
+	_code_text.add_keyword_color("print", Color(1,.5833,0))
+	_code_text.set_custom_bg_color(Color(0,0,0))
 
-
-
-func _fixed_process(delta):
-	pass
-		
-
-func _input(event):
-	pass
-		
 func show():
-	window.popup()
+	_window.popup()
 
 func _on_WindowDialog_popup_hide():	
 	get_node("/root/global").toggle_player()
 
-
 func _on_WindowDialog_about_to_show():
 	get_node("/root/global").toggle_player()
-
-
-# TO DO: Implement option 
-func save_file(file):
-	var f = File.new()
-	f.open(file, File.WRITE)
-	f.store_string(code_text.get_text())
-
+	_code_text.set_text(_file_helper.get_code())
 
 func _on_executeButton_pressed():
-	var res = http_helper.http_post_request(code_text.get_text())
-	execute_label.set_text("OUTPUT: \n" + res)
+	var user_code = _code_text.get_text()
+	user_code = user_code.replacen("'", "\"")
+
+	_file_helper.save_code(user_code)
+	var res = _http_helper.http_post_request(user_code)
+	_output_label.set_text("OUTPUT :\n" + res)
 	
-	var check = file_helper.check_answer(res)
+	var check = _file_helper.check_answer(res)
 
 	if check[0]:
-		var correct = ResourceLoader.load("splash/correct.png")	
-		get_node("WindowDialog/check_label").set_texture(correct)
-		window.hide()
-		reward_popup.set_text(check[2])
-		reward_popup.popup()
+		var correct = ResourceLoader.load("art/ui/correct.png")	
+		_check_label.set_texture(correct)
+		_window.hide()
+		_reward_popup.set_text(check[2])
+		_reward_popup.popup()
 	
 	else:
-		var incorrect = ResourceLoader.load("splash/x_button.png")
-		get_node("WindowDialog/check_label").set_texture(incorrect)
-	
-	pass # replace with function body
-
-
+		var incorrect = ResourceLoader.load("art/ui/x_button.png")
+		_check_label.set_texture(incorrect)
+		
 func _on_taskButton_pressed():
-	char_label.set_text(file_helper.get_quest_text())
+	_description_label.set_text(_file_helper.get_quest_text())
 
 func _on_hintButton_pressed():
-	char_label.set_text(file_helper.get_hint_text())
+	_description_label.set_text(_file_helper.get_hint_text())
+
+
+func _on_saveButton_pressed():
+	_file_helper.save_code(_code_text.get_text())
+
+
+func _on_resetButton_pressed():
+	_code_text.set_text(_file_helper.get_reset_code())
+

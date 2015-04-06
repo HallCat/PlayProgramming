@@ -1,0 +1,21 @@
+<quest>
+	<text id="answer">17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1
+</text>
+
+<text id="quest_text">A Hailstone series is defined as follows: start with any integer value greater than 0, say x. If x is even, then the next value in the series is x/2; if x is odd, then the next value in the series is 3x + 1. Now apply the same rules to create the next value in the series, and so on. The name Hailstone comes from the property that the values in such a series alternate between going up and down (up for odd values and down for even values.)
+
+For instance, here is the Hailstone series generated from starting value 17:
+
+17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1
+
+Try to make this happen!
+</text>
+
+<text id="hint_text">You may need to use if statements and loops here!
+</text>
+
+
+<text id="success">Congratulations! 
+You finished the game!
+</text>
+</quest>

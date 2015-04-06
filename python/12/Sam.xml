@@ -1,0 +1,6 @@
+<text quest_id="0">Here is an example of modifying a list, the first element is changed from 1 to 10:
+
+int_list = [1, 2, 3, 4, 5]
+int_list[0] = 10
+
+</text>

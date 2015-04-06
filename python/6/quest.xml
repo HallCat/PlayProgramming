@@ -1,27 +1,19 @@
 <quest>
-	<text id="answer">Hello
+	<text id="answer">{Play}
 </text>
 
-<text id="quest_text">In Python, outputting text to the screen involves having to type the keyword print followed by a space and the desired output surrounded by inverted commas ("). For example, the following:
-
-print "My name is Richard" 
-
-will have the text "My name is Richard" show up on screen.
-Try outputting the word Hello to the screen.
-Press the execute button when you're ready to check your answer!
+<text id="quest_text">In python, variables can be reassigned to different types. 
+	For example, an int can become a string, and vice versa.
+	Some reassigning is happening in this code, try to figure it out, and print the value of x.
 </text>
 
-<text id="hint_text">Write the following in to the left: 
-
-print "Hello" 
-
-And press the execute button!
+<text id="hint_text">Remember to evaluate the if conditions!
 </text>
 
 
 <text id="success">Congratulations! 
-You helped Richard with his problem!
+You helped with his problem!
 
-Printing will be used throughout this game for testing answers. 
+Reassigning is useful, but not always needed! Sometimes creating a new variable is preferred!
 </text>
 </quest>

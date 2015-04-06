@@ -1,0 +1,17 @@
+<quest>
+	<text id="answer">One Zero Eight
+</text>
+
+<text id="quest_text">Look at the maths, and try printing out the value of x in word form (ie. 10 is "One Zero".) at the end of the program. 
+(where it says "#print here!")</text>
+
+<text id="hint_text">x * x and x**2 are the same!
+</text>
+
+
+<text id="success">Congratulations! 
+You helped Richard with his problem!
+
+Printing will be used throughout this game for testing answers. 
+</text>
+</quest>

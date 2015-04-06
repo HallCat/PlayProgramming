@@ -1,27 +1,15 @@
 <quest>
-	<text id="answer">Hello
+	<text id="answer">10</text>
+
+<text id="quest_text">Peter is having some trouble with his integer addition. He is trying to add two numbers together and get 10, but is instead getting 14.
+
 </text>
 
-<text id="quest_text">In Python, outputting text to the screen involves having to type the keyword print followed by a space and the desired output surrounded by inverted commas ("). For example, the following:
-
-print "My name is Richard" 
-
-will have the text "My name is Richard" show up on screen.
-Try outputting the word Hello to the screen.
-Press the execute button when you're ready to check your answer!
-</text>
-
-<text id="hint_text">Write the following in to the left: 
-
-print "Hello" 
-
-And press the execute button!
+<text id="hint_text">Remember, variables should have unique names!
 </text>
 
 
 <text id="success">Congratulations! 
-You helped Richard with his problem!
-
-Printing will be used throughout this game for testing answers. 
+You helped Peter with his problem!
 </text>
 </quest>

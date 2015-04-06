@@ -1,0 +1,5 @@
+<text quest_id="0">The method for x in range(y) loops between 0 and the number y - 1. X is each number as it loops through. Here's an example:
+
+	for x in range(y):
+		print x
+</text>

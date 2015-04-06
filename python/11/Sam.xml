@@ -1,0 +1,6 @@
+<text quest_id="0">Here is an example of a list of ints, and how to print out the first int in the list (the first int is at position 0):
+
+int_list = [1, 2, 3, 4, 5]
+print int_list[0]
+
+</text>

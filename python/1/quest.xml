@@ -1,10 +1,9 @@
 <quest>
-	<text id="answer">Hello
-</text>
+	<text id="answer">Hello</text>
 
-<text id="quest_text">In Python, outputting text to the screen involves having to type the keyword print followed by a space and the desired output surrounded by inverted commas ("). For example, the following:
+<text id="quest_text">In Python, outputting text to the screen involves having to type the keyword print followed by a space and the desired output surrounded by quotation marks! (")
 
-print "My name is Richard" 
+print "Hello" 
 
 will have the text "My name is Richard" show up on screen.
 Try outputting the word Hello to the screen.

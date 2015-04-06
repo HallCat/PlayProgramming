@@ -1,0 +1,29 @@
+<quest>
+	<text id="answer">10
+11
+12
+13
+14
+</text>
+
+<text id="quest_text">Look at the code, a list my_list contains 5 numbers. Associate these numbers with the following keys in the dictionary my_dictionary:
+
+"ten" = 10
+"eleven" = 11
+"twelve" = 12
+"thirteen" = 13
+"fourteen" = 14
+</text>
+
+<text id="hint_text">Here's an example:
+
+my_dictionary["ten"] = 10
+</text>
+
+
+<text id="success">Congratulations! 
+You helped Richard with his problem!
+
+Printing will be used throughout this game for testing answers. 
+</text>
+</quest>

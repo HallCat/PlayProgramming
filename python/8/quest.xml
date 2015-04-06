@@ -1,0 +1,19 @@
+<quest>
+	<text id="answer">10
+</text>
+
+<text id="quest_text">In Python, error tracebacks are returned when errors occur.
+
+Just because you get errors, doesn't mean you're a bad programmer. It happens to everyone. Try to fix Peter's!
+</text>
+
+<text id="hint_text">Read the errors carefully. And tackle them one by one. 
+</text>
+
+
+<text id="success">Congratulations! 
+You helped Peter with his problem!
+
+These kind of errors will help you learn in the long run, don't let it get you down!
+</text>
+</quest>

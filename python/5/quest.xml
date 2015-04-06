@@ -1,27 +1,22 @@
 <quest>
-	<text id="answer">Hello
+	<text id="answer">Three Nine Two
 </text>
 
-<text id="quest_text">In Python, outputting text to the screen involves having to type the keyword print followed by a space and the desired output surrounded by inverted commas ("). For example, the following:
+<text id="quest_text">In this code, x is set to the number 10. 
+After this a number of if and else if statements will be checked.
 
-print "My name is Richard" 
-
-will have the text "My name is Richard" show up on screen.
-Try outputting the word Hello to the screen.
-Press the execute button when you're ready to check your answer!
+Add to this code, by printing out the value of x in word form (ie. 10 is "One Zero".) at the end of the program. 
+(where it says "#print here!")
 </text>
 
-<text id="hint_text">Write the following in to the left: 
+<text id="hint_text"> Remember print in word form. 
+The number 123 would be "One Two Three"
 
-print "Hello" 
-
-And press the execute button!
+Also, talk to the other characters to learn more about if, else if, and else statements!
 </text>
 
 
 <text id="success">Congratulations! 
-You helped Richard with his problem!
-
-Printing will be used throughout this game for testing answers. 
+You helped Richard with his problem! 
 </text>
 </quest>

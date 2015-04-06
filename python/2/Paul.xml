@@ -1,0 +1,4 @@
+<text quest_id="0">Variables are used to store data such as Strings. New variables should have unique names. The following code will store the String "Play!" in the variable my_var:
+		
+			my_var = "Play!"
+</text>

@@ -1,0 +1,5 @@
+<text quest_id="0">Here's an example of a dictionary, the three keys are "first", "second" and "third" with the numbers 1, 2, and 3. Then I print the element with the key "first":
+
+my_dict = {"first" : 1, "second" : 2, "third" : 3}
+print my_dict["first"]
+</text>
