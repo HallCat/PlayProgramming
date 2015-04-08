@@ -1,74 +1,99 @@
-	
 extends Node2D
 
+# Set the Server IP and Port as constants
+const SERVER_IP = "http://54.77.203.93"
+const PORT = 4243
+const TOTAL_ATTEMPTS = 25
 
-var SERVER_IP = "http://54.77.203.93"
-var PORT = 4243
-var http = null
-
-func http_connect():
-	http = HTTPClient.new()
-	var err = http.connect(SERVER_IP, PORT)
+func server_connect():
+	var connection = HTTPClient.new()
+	connection.connect(SERVER_IP, PORT)
 	var attempts = 0
 	
-	while(( http.get_status()==HTTPClient.STATUS_CONNECTING or http.get_status()==HTTPClient.STATUS_RESOLVING) and 
-	attempts < 25):
-		#Wait until resolved and connected
-		http.poll()
+	# Keep trying to connect while the connection is connecting or resolving
+	# And as long as there have only been less than total attempts  
+	while((connection.get_status() == HTTPClient.STATUS_CONNECTING or
+		connection.get_status() == HTTPClient.STATUS_RESOLVING) and 
+		attempts < TOTAL_ATTEMPTS):
+		# Poll the connection
+		connection.poll()
+		# wait 30 milliseconds
 		OS.delay_msec(30)
+		# Increment the attempt counter
 		attempts+= 1
-		
-	if(attempts == 25 or err != OK):
-		return false
-	else:
-		return true
 
+	# Check the amount of the attempts
+	if(attempts < TOTAL_ATTEMPTS):
+		# Connection successful, return connection
+		return connection
+	else:
+		# Connection failed
+		return false
+
+# Make the get request with the filename passed in
 func http_get(filename):
-	if(http_connect()):
+	# Connect to the server
+	var server_connection = server_connect()
+	if(server_connection):
+		
+		# Set the headers
+		var headers=["Accept: */*"]
 	
-		var headers=[
-			"Accept: */*"
-		]
+		# Make the /read get request
+		server_connection.request(HTTPClient.METHOD_GET,"/read?file="+filename,headers)
 	
-		http.request(HTTPClient.METHOD_GET,"/read?file="+filename,headers)
-	
-		while (http.get_status() == HTTPClient.STATUS_REQUESTING):
-			# Keep polling until the request is going on
-			http.poll()
+		# While still requeting.
+		while (server_connection.get_status() == HTTPClient.STATUS_REQUESTING):
+			# Poll
+			server_connection.poll()
+			# Wait 30 milliseconds
 			OS.delay_msec(30)
 			
-		var text = ""
-		if (http.has_response()):
-	
-			var response = http.read_response_body_chunk()
-			text = response.get_string_from_ascii()
-				#rb = rb + chunk
+		# init result text.
+		var result_text = ""
+		# Check if the request has a response
+		if (server_connection.has_response()):
+			# Get the entire response in array form
+			var response = server_connection.read_response_body_chunk()
+			# Convert array to string
+			result_text = response.get_string_from_ascii()
 			
-			if(text.find("Traceback") != -1):
-				text = "ERROR : \n" + text
+			# Check if the result is an error. (ie. it contains the word "Traceback")
+			if(result_text.find("Traceback") != -1):
+				# Set the text as the error
+				result_text = "ERROR : \n" + result_text
 			
-			if text.length() < 1 :
-				text = "ERROR \n: Did you forget to print?"
+			# If the response is empty, remind the user to print.
+			if result_text.length() < 1 :
+				result_text = "ERROR: \nDid you forget to print?"
 				
-		
-		return text
+		# Return the result
+		return result_text
 
+# Make the HTTP POST /python request
 func http_post_request(code):
-	if(http_connect()):
+	# connect to the servers
+	var server_connection = server_connect()
+	# Check the connection
+	if(server_connection):
+		# Set the header
+		var header=["Content-Type: text/plain"]
 		
-		var header=[
-			"Content-Type: text/plain"
-		]
-		
+		# Create the filename string, as two random numbers
 		var filename = str(randi()) + str(randi())
 	
-		http.request( HTTPClient.METHOD_POST, "/python?file=" + filename, header, code)
-		while (http.get_status() == HTTPClient.STATUS_REQUESTING):
-			http.poll()
+		# Make the /python request, passing the filename and code.
+		server_connection.request( HTTPClient.METHOD_POST, "/python?file=" + filename, header, code)
+		
+		# Continue while requesting
+		while (server_connection.get_status() == HTTPClient.STATUS_REQUESTING):
+			# Poll
+			server_connection.poll()
+			# Wait 30 milliseconds
 			OS.delay_msec(30)
 			
+		# Make the get request
 		return http_get(filename)
 	else:
+		# Unable to connect, give error code to check connection
 		return "ERROR: \nUNABLE TO CONNECT TO SERVER. Check Network Configurations!"
-
-

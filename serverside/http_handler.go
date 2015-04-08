@@ -7,105 +7,109 @@ import (
   "os"
   "os/exec"
   "fmt"
-  //"time"
+  "time"
   "bufio"
+  "bytes"
 )
 
-type pythonHandler struct {
-  string
-}
+// Constant Store the error for timeout
+const TIMEOUT_ERR = "TIMEOUT. Your code ran too long. \n" +
+      				"Do you have an infinite loop?"
 
-type readFileHelper struct {
-  string
-}
+// Function for handling reading of files
+func readFileHandler(w http.ResponseWriter, r *http.Request) {
 
-func (reader *readFileHelper) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-
+	// Retrieve the filename
 	filename := r.URL.Query().Get("file")
-	dat, err := ioutil.ReadFile(filename)
-    if err != nil {
-		log.Fatal(err)
-	}
+	// Read the file name
+	response, _ := ioutil.ReadFile(filename)
 
+	// Init flusher
+    flusher := w.(http.Flusher)
+    // Flush ResponseWriter
+    flusher.Flush()
 
-    response := string(dat)
-    if f, ok := w.(http.Flusher); ok {
-     f.Flush()
- 	}
-
+    // Remove file
 	os.Remove(filename)
 
-    w.Write([]byte(response))
-
-
+	// Write the response
+    w.Write(response)
 }	
 
-func (ph *pythonHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-
-
+func pythonHandler(w http.ResponseWriter, r *http.Request) {
 	filename := r.URL.Query().Get("file")
 
-    log.Println(filename)
+	// Get body from request
+	body, _ := ioutil.ReadAll(r.Body)
+	bodyString := string(body)
 
-	body, err := ioutil.ReadAll(r.Body)
+	// prepare run string
+	runString := fmt.Sprint("sudo docker run --rm=true --name ", filename,
+	 					 " python:2 python -c '", bodyString,	 "'")
 
-	if err != nil {
-		log.Fatal(err)
-	}
+	// prepare kill string
+	exitString := fmt.Sprint("sudo docker kill ", filename)
+	command := exec.Command("/bin/sh", "-c", runString)
+ 
+ 	// Init output
+    output := &bytes.Buffer{}
+    error_stream := &bytes.Buffer{}
+    // connect the output of the command and the output var
+    command.Stdout = output
+    command.Stderr = error_stream
 
+    command.Start()
 
-	bodyStr := string(body)
+    // Initialize result output
+    result_output := ""
 
-	runStr := fmt.Sprint("sudo docker run --rm=true --name ", filename,
-	 " python:2 python -c '", bodyStr,	 "'")// &> ", filename)
+    // Make a channel for connecting/comparing the two sub routines.
+	execution_finished := make(chan error)
 
-	exitStr := fmt.Sprint("sudo docker kill ", filename)
-	log.Println(exitStr)
-
-	log.Println(runStr)
-	cmd := exec.Command("/bin/sh", "-c", runStr)
-    out, err := cmd.CombinedOutput()
-
-    log.Println(out)
-
-
-    f, err := os.Create(filename)
-    writer := bufio.NewWriter(f)
- 	writer.WriteString(string(out))
-    writer.Flush()
-    /*
-	done := make(chan error, 1)
+	// Create a goroutine that will wait for the execution to finish
 	go func() {
-	    done <- cmd.Wait()
+	    execution_finished <- command.Wait()
 	}()
-	select {
-	    case <-time.After(3* time.Second):
-	        if err := cmd.Process.Kill(); err != nil {
-	            log.Fatal("failed to kill: ", err)
-	        }
 
-	        exec.Command("/bin/sh", "-c", exitStr).Start()
-	        <-done // allow goroutine to exit
-	        log.Println("process killed")
-	    case err := <-done:
-	            if err!=nil{
-	                log.Printf("process done with error = %v", err)
-	            }
+	// Select statement, chooses which operation has been received 
+	select {
+		// If the timeout of 1 second has been received
+	    case <-time.After(time.Second):
+	    	// Kill the command
+	        command.Process.Kill()
+	        // Kill the docker container
+	        exec.Command("/bin/sh", "-c", exitString).Start()
+
+	        result_output = TIMEOUT_ERR
+
+	    // If the execution of the command has finished
+	    case <-execution_finished:
+	    	result_output = string(output.Bytes())
+
 	}
-	*/
-	
+
+	// Create file
+    file, _ := os.Create(filename)
+    // Write output to file
+    writer := bufio.NewWriter(file)
+ 	writer.WriteString(result_output)
+ 	writer.WriteString(string(error_stream.Bytes()))
+
+    // Flush writer
+    writer.Flush()
 }
 
 func main() {
-  mux := http.NewServeMux()
+	// Create multiplexer for checking incoming requests
+	request_multiplexer := http.NewServeMux()
 
-  dh := &pythonHandler{"building"}
-  mux.Handle("/python", dh)
-
-  uh := &readFileHelper{"upload"}
-  mux.Handle("/read", uh)
-
-  log.Println("Listening...")
-  http.ListenAndServe(":4243", mux)
+	// Tell multiplexer how to handler /python and /read requests
+	// by linking them to the respective handlers
+	request_multiplexer.HandleFunc("/python", pythonHandler)
+	request_multiplexer.HandleFunc("/read", readFileHandler)
+	
+	// Listen on port 4243
+	log.Println("Listening...")
+	http.ListenAndServe(":4243", request_multiplexer)
 
 }

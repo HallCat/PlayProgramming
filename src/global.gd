@@ -44,5 +44,5 @@ func move_player(pos):
 # Toggle the player. Pauses the player to prevent it from moving.
 # This prevents prevents the player input from interupting the code/text input 
 func toggle_player():
-	_current_scene.get_node("Player").pause()
+	_current_scene.get_node("Player").pause_player()
 	
