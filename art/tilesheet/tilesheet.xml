@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="TileSet" subresource_count="11" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
+<resource_file type="TileSet" subresource_count="14" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
+	<ext_resource path="res://art/tilesheet/Buildings/walls.png" type="Texture"></ext_resource>
+	<ext_resource path="res://art/tilesheet/Sky/sky.png" type="Texture"></ext_resource>
+	<ext_resource path="res://art/tilesheet/Sky/big cloud.png" type="Texture"></ext_resource>
+	<ext_resource path="res://art/tilesheet/Platforms/purple_grass.png" type="Texture"></ext_resource>
+	<ext_resource path="res://art/tilesheet/Sky/cloud.png" type="Texture"></ext_resource>
 	<ext_resource path="res://art/tilesheet/boundary.png" type="Texture"></ext_resource>
+	<ext_resource path="res://art/tilesheet/Platforms/snow_sheet.png" type="Texture"></ext_resource>
+	<ext_resource path="res://art/tilesheet/Platforms/grey_sheet.png" type="Texture"></ext_resource>
 	<ext_resource path="res://art/tilesheet/Platforms/grass_sheet.png" type="Texture"></ext_resource>
 	<ext_resource path="res://art/tilesheet/Buildings/roof_1.png" type="Texture"></ext_resource>
-	<ext_resource path="res://art/tilesheet/Sky/big cloud.png" type="Texture"></ext_resource>
-	<ext_resource path="res://art/tilesheet/Sky/sky.png" type="Texture"></ext_resource>
 	<ext_resource path="res://art/tilesheet/Buildings/doors_windows.png" type="Texture"></ext_resource>
-	<ext_resource path="res://art/tilesheet/Buildings/walls.png" type="Texture"></ext_resource>
-	<ext_resource path="res://art/tilesheet/Sky/cloud.png" type="Texture"></ext_resource>
-	<ext_resource path="res://art/tilesheet/Platforms/purple_grass.png" type="Texture"></ext_resource>
+	<ext_resource path="res://art/tilesheet/Platforms/beige_sheet.png" type="Texture"></ext_resource>
 	<resource type="RectangleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2 name="extents"> 10.5, 10.5 </vector2>
@@ -385,6 +388,246 @@
 		<vector2 name="49/shape_offset"> 0, 0 </vector2>
 		<rect2 name="49/region"> 0, 0, 0, 0 </rect2>
 		<array name="49/shapes" len="0" shared="false">
+		</array>
+		<string name="50/name"> "grey_1" </string>
+		<resource name="50/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="50/tex_offset"> 0, 0 </vector2>
+		<vector2 name="50/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="50/region"> 0, 0, 21, 21 </rect2>
+		<array name="50/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="51/name"> "grey_2" </string>
+		<resource name="51/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="51/tex_offset"> 0, 0 </vector2>
+		<vector2 name="51/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="51/region"> 21, 0, 21, 21 </rect2>
+		<array name="51/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="52/name"> "grey_3" </string>
+		<resource name="52/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="52/tex_offset"> 0, 0 </vector2>
+		<vector2 name="52/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="52/region"> 42, 0, 21, 21 </rect2>
+		<array name="52/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="53/name"> "grey_4" </string>
+		<resource name="53/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="53/tex_offset"> 0, 0 </vector2>
+		<vector2 name="53/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="53/region"> 63, 0, 21, 21 </rect2>
+		<array name="53/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="54/name"> "grey_5" </string>
+		<resource name="54/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="54/tex_offset"> 0, 0 </vector2>
+		<vector2 name="54/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="54/region"> 84, 0, 21, 21 </rect2>
+		<array name="54/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="55/name"> "grey_6" </string>
+		<resource name="55/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="55/tex_offset"> 0, 0 </vector2>
+		<vector2 name="55/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="55/region"> 0, 21, 21, 21 </rect2>
+		<array name="55/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="56/name"> "grey_7" </string>
+		<resource name="56/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="56/tex_offset"> 0, 0 </vector2>
+		<vector2 name="56/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="56/region"> 21, 21, 21, 21 </rect2>
+		<array name="56/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="57/name"> "grey_8" </string>
+		<resource name="57/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="57/tex_offset"> 0, 0 </vector2>
+		<vector2 name="57/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="57/region"> 42, 21, 21, 21 </rect2>
+		<array name="57/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="58/name"> "grey_9" </string>
+		<resource name="58/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="58/tex_offset"> 0, 0 </vector2>
+		<vector2 name="58/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="58/region"> 63, 21, 21, 21 </rect2>
+		<array name="58/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="59/name"> "grey_10" </string>
+		<resource name="59/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/grey_sheet.png">  </resource>
+		<vector2 name="59/tex_offset"> 0, 0 </vector2>
+		<vector2 name="59/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="59/region"> 84, 21, 21, 21 </rect2>
+		<array name="59/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="60/name"> "snow_1" </string>
+		<resource name="60/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="60/tex_offset"> 0, 0 </vector2>
+		<vector2 name="60/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="60/region"> 0, 0, 21, 21 </rect2>
+		<array name="60/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="61/name"> "snow_2" </string>
+		<resource name="61/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="61/tex_offset"> 0, 0 </vector2>
+		<vector2 name="61/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="61/region"> 21, 0, 21, 21 </rect2>
+		<array name="61/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="62/name"> "snow_3" </string>
+		<resource name="62/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="62/tex_offset"> 0, 0 </vector2>
+		<vector2 name="62/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="62/region"> 42, 0, 21, 21 </rect2>
+		<array name="62/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="63/name"> "snow_4" </string>
+		<resource name="63/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="63/tex_offset"> 0, 0 </vector2>
+		<vector2 name="63/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="63/region"> 63, 0, 21, 21 </rect2>
+		<array name="63/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="64/name"> "snow_5" </string>
+		<resource name="64/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="64/tex_offset"> 0, 0 </vector2>
+		<vector2 name="64/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="64/region"> 84, 0, 21, 21 </rect2>
+		<array name="64/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="65/name"> "snow_6" </string>
+		<resource name="65/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="65/tex_offset"> 0, 0 </vector2>
+		<vector2 name="65/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="65/region"> 0, 21, 21, 21 </rect2>
+		<array name="65/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="66/name"> "snow_7" </string>
+		<resource name="66/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="66/tex_offset"> 0, 0 </vector2>
+		<vector2 name="66/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="66/region"> 21, 21, 21, 21 </rect2>
+		<array name="66/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="67/name"> "snow_8" </string>
+		<resource name="67/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="67/tex_offset"> 0, 0 </vector2>
+		<vector2 name="67/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="67/region"> 42, 21, 21, 21 </rect2>
+		<array name="67/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="68/name"> "snow_9" </string>
+		<resource name="68/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="68/tex_offset"> 0, 0 </vector2>
+		<vector2 name="68/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="68/region"> 63, 21, 21, 21 </rect2>
+		<array name="68/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="69/name"> "snow_10" </string>
+		<resource name="69/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/snow_sheet.png">  </resource>
+		<vector2 name="69/tex_offset"> 0, 0 </vector2>
+		<vector2 name="69/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="69/region"> 84, 21, 21, 21 </rect2>
+		<array name="69/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="70/name"> "snow_ 2" </string>
+		<resource name="70/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="70/tex_offset"> 0, 0 </vector2>
+		<vector2 name="70/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="70/region"> 0, 0, 21, 21 </rect2>
+		<array name="70/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="71/name"> "snow_ 11" </string>
+		<resource name="71/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="71/tex_offset"> 0, 0 </vector2>
+		<vector2 name="71/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="71/region"> 84, 21, 21, 21 </rect2>
+		<array name="71/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="72/name"> "snow_ 6" </string>
+		<resource name="72/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="72/tex_offset"> 0, 0 </vector2>
+		<vector2 name="72/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="72/region"> 84, 0, 21, 21 </rect2>
+		<array name="72/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="73/name"> "snow_ 4" </string>
+		<resource name="73/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="73/tex_offset"> 0, 0 </vector2>
+		<vector2 name="73/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="73/region"> 42, 0, 21, 21 </rect2>
+		<array name="73/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="74/name"> "snow_ 9" </string>
+		<resource name="74/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="74/tex_offset"> 0, 0 </vector2>
+		<vector2 name="74/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="74/region"> 42, 21, 21, 21 </rect2>
+		<array name="74/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="75/name"> "snow_ 3" </string>
+		<resource name="75/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="75/tex_offset"> 0, 0 </vector2>
+		<vector2 name="75/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="75/region"> 21, 0, 21, 21 </rect2>
+		<array name="75/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="76/name"> "snow_ 5" </string>
+		<resource name="76/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="76/tex_offset"> 0, 0 </vector2>
+		<vector2 name="76/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="76/region"> 63, 0, 21, 21 </rect2>
+		<array name="76/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="77/name"> "snow_ 7" </string>
+		<resource name="77/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="77/tex_offset"> 0, 0 </vector2>
+		<vector2 name="77/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="77/region"> 0, 21, 21, 21 </rect2>
+		<array name="77/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="78/name"> "snow_ 10" </string>
+		<resource name="78/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="78/tex_offset"> 0, 0 </vector2>
+		<vector2 name="78/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="78/region"> 63, 21, 21, 21 </rect2>
+		<array name="78/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<string name="79/name"> "snow_ 8" </string>
+		<resource name="79/texture" resource_type="Texture" path="res://art/tilesheet/Platforms/beige_sheet.png">  </resource>
+		<vector2 name="79/tex_offset"> 0, 0 </vector2>
+		<vector2 name="79/shape_offset"> 10.5, 10.5 </vector2>
+		<rect2 name="79/region"> 21, 21, 21, 21 </rect2>
+		<array name="79/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
 		</array>
 
 	</main_resource>

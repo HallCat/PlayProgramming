@@ -26,26 +26,18 @@
 312
 </text>
 
-<text id="quest_text">In Python, outputting text to the screen involves having to type the keyword print followed by a space and the desired output surrounded by inverted commas ("). For example, the following:
+<text id="quest_text">Peter needs to print out the whole list!
 
-print "My name is Richard" 
-
-will have the text "My name is Richard" show up on screen.
-Try outputting the word Hello to the screen.
-Press the execute button when you're ready to check your answer!
+It would be great if you could print it using a loop! Try it!
 </text>
 
-<text id="hint_text">Write the following in to the left: 
-
-print "Hello" 
-
-And press the execute button!
+<text id="hint_text">Talk to everyone about looping and range!
 </text>
 
 
 <text id="success">Congratulations! 
 You helped Richard with his problem!
 
-Printing will be used throughout this game for testing answers. 
+Loops are really important in python! 
 </text>
 </quest>
