@@ -66,7 +66,7 @@ func _on_executeButton_pressed():
 	_file_helper.save_code(user_code)
 	
 	# Make the POST Request to execute the code.
-	var res = _http_helper.http_post_request(user_code)
+	var res = str(_http_helper.http_post_request(user_code))
 	# Set the result in the output text.
 	_output_label.set_text("OUTPUT :\n" + res)
 	
